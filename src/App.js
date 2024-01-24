@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+//rafce
+//install es7+ snippets
+//npm install --legacy-peer-deps
+import React from 'react';
+import "./App.css"
+import {Box} from '@mui/material';
+import {Route,Routes} from 'react-router-dom'
+import ExcerciseDetail from './Pages/ExcerciseDetail';
+import Home from './Pages/Home';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Box width="400px" sx={{width:{xl:'1488px'}}} m="auto">
+     <Navbar/>
+     <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/excercise/:id" element={<ExcerciseDetail/>}/>
+     </Routes>
+     <Footer/>
+    </Box>
+  )
 }
 
-export default App;
+export default App
