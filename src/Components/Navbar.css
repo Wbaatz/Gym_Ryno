@@ -1,0 +1,22 @@
+.header{
+    max-width: 60rem;
+    margin:auto;
+    padding:2rem;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.list{
+  
+}
+
+.list a{
+    text-decoration: none;
+ font-size: 20px;
+    color:rgb(5, 220, 148);
+}
+
+.list a:hover,
+.list a.active{
+    color: rgb(6, 145, 147);
+}
