@@ -1,33 +1,51 @@
 import React,{useState,useEffect} from 'react'
 import {Box,Button,Stack,TextField,Typography} from '@mui/material'
 import axios from 'axios';
-import { ExcerciseData} from '../utils/FetchData'
-const SearchExcercises = () => {
+import { response,myResponse} from '../utils/FetchData'
+import HorizontalScrollbar from './HorizontalScrollbar';
+const SearchExcercises = ({SetExercises,bodyPart,setBodyPart}) => {
 
-  const [Search, SetSearch] = useState('')
-  const [Exercises,SetExercises]=useState([])
+  const [Search, SetSearch] = useState('');
+
+  const [bodyParts,setBodyParts]=useState([]);
+
 //async means that this function is going to take some time.
+
+
+// useEffect(()=>{
+//   const fetchExerciseData=async ()=>{
+//     const bodyPartsData=await fetchExerciseData('htttps://exercisedb.p.rapidapi.com/exercises/bodyPartList',exerciseOptions);
+//   }
+// },[])
+useEffect(()=>{
+  const fetchExerciseData= async ()=>{
+ const BodyPartsData=(await myResponse('exercises/bodyPartList')).data;
+ setBodyParts(['all',...BodyPartsData]);
+  }
+fetchExerciseData();
+},[])
+
+
   const HandleSearch= async()=>{
   if(Search){
-  
-   console.log(ExcerciseData);
-   const searchedExercise=ExcerciseData.filter(
-        (ex)=>ex.name.toLowerCase().includes(Search) 
-              || ex.target.toLowerCase().includes(Search) 
-              || ex.equipment.toLowerCase().includes(Search) 
-              || ex.bodyPart.toLowerCase().includes(Search) 
+    // console.log( (await myResponse('exercises')).data);
+    //  console.log( (await myResponse('exercises/bodyPartList')).data.filter(part => part === 'back'));
+     const searchedExercise= (await myResponse('exercises')).data.filter(part=>part.bodyPart.toLowerCase().includes(Search)
+     || part.target.toLowerCase().includes(Search) 
+     || part.equipment.toLowerCase().includes(Search) 
+     || part.bodyPart.toLowerCase().includes(Search) 
+     );
+     console.log(searchedExercise);
 
-   )
-   SetSearch('');
-   console.log(searchedExercise);
-   SetExercises(searchedExercise);
+    SetSearch('');
+    SetExercises(searchedExercise);
 
 
   }
 
   }
   return (
-    <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
+    <Stack alignItems="center"  mt="37px" justifyContent="center" >
       <Typography fontWeight={700} sx={{fontSize:{lg:'44px',xs:'30px'}}} mb="50px" textAlign="center">Awesome Excercise You <br/> Should Know</Typography>
       <Box position="relative" mb="72px" mr="180px">
        <TextField height="76px"
@@ -52,6 +70,12 @@ const SearchExcercises = () => {
        onClick={HandleSearch}>
         Search
        </Button>
+      </Box>
+
+      <Box sx={{position:'relative',width:'100%',o:"20px" }}>
+<HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
+
+
       </Box>
       </Stack>
   )

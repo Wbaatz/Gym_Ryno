@@ -14,8 +14,9 @@ body {
     width: 0px;
   }
   
-  .right-arrow,
+  
   .left-arrow {
+    z-index: 1;
     cursor: pointer;
     background: transparent;
     outline: none;
@@ -27,14 +28,28 @@ body {
     font-size: 25px;
     border-radius: 4px;
     position: absolute;
-    bottom: -20px;
-    right: 80px;
+    bottom:65px;
+    left: -31px;
     transform: scale(1, 1);
     transition: 0.3s all ease-in-out;
   }
   
   .right-arrow {
-    right: 140px;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FF2625;
+    font-size: 25px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 63px;
+    right:  0px;
+    transform: scale(1, 1);
+    transition: 0.3s all ease-in-out;
   }
   
   .right-arrow:hover,

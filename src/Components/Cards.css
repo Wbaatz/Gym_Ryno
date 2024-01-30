@@ -1,0 +1,155 @@
+
+/* #core-concepts{
+   
+    padding:20px;
+    border-radius:2px;
+    background-color: rgb(88, 119, 141);
+    box-shadow: 0 1px 1px rgba(red, green, blue, alpha);
+    box-sizing: border-box;
+} */
+
+
+.core-concepts{
+    width: 400px;
+    height: 445px;
+    background-color: rgb(1, 62, 87);
+    border-top: 4px solid #066cd1;
+    border-right:4px solid #066cd1 ;
+    border-left: 4px solid #066cd1;
+    border-bottom-left-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+
+    border-radius: 20px 20px 4px 4px;
+    box-shadow: -1px 1px 8px 0px rgb(4 108 226 / 91%);
+
+
+    padding-bottom: 10px;
+    transform:translateY(2%);
+    transition: all 0.6s ease-out;
+
+
+
+
+    animation-name: MoveAnim;
+animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+animation-iteration-count: 1;
+animation-duration: 1s;
+animation-fill-mode:inherit;
+animation-direction:normal;
+
+    
+}
+
+
+
+  .core-concepts:hover
+   {
+    transform: scale(1.1, 1.1);
+    background-color: rgb(6, 152, 193);
+    box-shadow: -1px 1px 20px 0px rgba(0, 48, 104, 0.908);
+ transform:translateY(-4%);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes MoveAnim {
+0%{
+    opacity:0;
+transform: translateY(34%);
+
+}
+100%{
+    opacity:1;
+   
+    transform:translateY(2%);
+}
+
+}
+.core-concepts   img{
+    height: 326px;
+  object-fit: cover;
+  border-radius: 20px 20px 0px 0px;
+  
+ 
+   
+   }
+
+
+    #core-concepts Link :hover p {
+   font-size: 16.5px;
+    transition:1s;
+
+   }
+   
+    #core-concepts Link :hover h1{
+   font-size: 30px;
+    transition:1s;
+
+   }
+
+
+   
+   
+
+   #core-concepts Link  h1{
+  margin:0px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(213, 213, 213)
+   }
+
+   #core-concepts Link  p{
+    margin:10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color:rgb(213, 213, 213);
+        
+      
+     }
+
+     .btn{
+        transition:1s;
+        background: rgb(207, 4, 102);
+        color: white;
+        border: none;
+        padding: 5px 25px;
+         margin:5px;
+        border-radius: 10px;
+    }
+    .btn2{
+        transition:1s;
+        background: rgb(233, 157, 4);
+        color: white;
+        border: none;
+        padding: 5px 25px;
+         margin:5px;
+        border-radius: 10px;
+    }
+   
+   
+   
+   
+    
+    .btn:hover ,.btn2:hover{
+        transition:1s;
+       
+        padding: 5px 25px;
+        box-shadow: 0px 0px 10px 3px lightgray;
+        font-size:16px;
+        transition:1s;
+        font-weight: bold;
+        background: white;
+        color: rgb(13, 1, 1);
+    }
