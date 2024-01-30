@@ -4,7 +4,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import '../Components/Cards.css'
-import {Stack,typography,Box} from '@mui/material';
+import {Stack,typography,Box, Typography} from '@mui/material';
 const Cards = ({exercise}) => {
   return (
 
@@ -18,11 +18,14 @@ const Cards = ({exercise}) => {
     <button className="btn2" >
     {exercise.target}
     </button>
-{/* <Button sx={{ml:'21px',color:'white',background:'#bd0707' ,fontSize:'14px',borderRadius:'20px',textTransform:'capitalized',padding:'3px 4px 3px 4px',fontWeight:'bold'}}>
-    {exercise.bodyPart}
-</Button> */}
+
 
 </Stack>
+<Typography ml="21px" color="white" fontWeight="bold" mt="11px" pb="10px" textTransform="capitalize" fontSize="20px">
+    {exercise.name}
+</Typography>
+
+
 </Link>
 
 
@@ -31,12 +34,5 @@ const Cards = ({exercise}) => {
 
 export default Cards
 
-    // <li>
-{/*            
-    <img id='backGd' src={props.image}  alt={props.title}/>
-    <h1 id='title'>{props.title}</h1>
-      <p>{props.description}</p>
-      <p>{props.Price}</p>
-      <button className='button'>Readmore</button> */}
-//   </li>
+
 
