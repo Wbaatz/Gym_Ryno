@@ -6,6 +6,7 @@ import { Box } from '@mui/material';
 
 //this is now acting as a wrapper.
 const Root = () => {
+ 
   return (
     <Box width="400px" sx={{width:{xl:'1488px'}}} m="auto">
         <Navbar/>

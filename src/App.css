@@ -1,8 +1,21 @@
 body {
     font-family: 'Josefin Sans';
-    background-color: #FFFAFB;
+    background-color: #91797e;
   }
   
+  .swiper-pagination
+  .swiper-pagination-bullet {
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  margin: 0;
+  margin-right: 25px;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16);
+  bottom: 15px;
+  margin-top: 53px;
+}
+
+
   * {
     padding: 0px;
     margin: 0px;
@@ -24,13 +37,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FF2625;
+    color: #016d6e;
     font-size: 25px;
     border-radius: 4px;
     position: absolute;
-    bottom:65px;
-    left: -31px;
-    transform: scale(1, 1);
+    bottom:180px;
+    left: -5px;
     transition: 0.3s all ease-in-out;
   }
   
@@ -42,19 +54,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FF2625;
+    color: #016d6e;
     font-size: 25px;
     border-radius: 4px;
     position: absolute;
-    bottom: 63px;
-    right:  0px;
-    transform: scale(1, 1);
+    bottom:180px;
+    right:  -3px;
     transition: 0.3s all ease-in-out;
   }
   
   .right-arrow:hover,
   .left-arrow:hover {
-    transform: scale(1.3, 1.3);
+    color: #03acaf;
   }
   
   .react-horizontal-scrolling-menu--wrapper {

@@ -9,10 +9,10 @@ const Cards = ({exercise}) => {
   return (
 
 
-<Link className="core-concepts"  to={`/exercise/${exercise.id}`}>
+<Link className="core-concepts"  to={`/ExcerciseDetail/${exercise.id}`}>
 <img  src={exercise.gifUrl}  alt={exercise.name} loading="lazy"/>
 <Stack direction="row">
-    <button className="btn">
+    <button className='btn'>
     {exercise.bodyPart}
     </button>
     <button className="btn2" >

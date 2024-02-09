@@ -2,10 +2,13 @@ import React from 'react'
 import body_img from '../Assets/body.png'
 import {Box,Stack,Typography,Button} from '@mui/material'
 import './HeroBanner.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Carousel } from 'react-bootstrap';
+
 
 const HeroBanner = () => {
   return (
-   <Box sx={{mt: 
+      <Box sx={{mt: 
    {lg:'212px',xs:'70px'},
    ml:{sm:'50px'},
    
@@ -24,7 +27,15 @@ const HeroBanner = () => {
       Excercise
     </Typography>
     <img src={body_img} className='muscle'></img>
+
+
+
+    
    </Box>
+      
+      
+
+   
   )
 }
 
