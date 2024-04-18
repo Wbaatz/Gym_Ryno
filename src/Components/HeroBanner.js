@@ -3,7 +3,7 @@ import body_img from '../Assets/body.png'
 import {Box,Stack,Typography,Button} from '@mui/material'
 import './HeroBanner.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Carousel } from 'react-bootstrap';
+
 
 
 const HeroBanner = () => {

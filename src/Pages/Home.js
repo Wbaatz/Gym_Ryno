@@ -26,7 +26,7 @@ const Home = () => {
   const [Exercises,SetExercises]=useState([]);
   return (
     <Box  >
-      <div style={{backgroundColor:'#f8f8f8'}}>
+      {/* <div style={{backgroundColor:'#f8f8f8'}}>
       <Swiper
         // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y,Autoplay]}
@@ -56,7 +56,7 @@ const Home = () => {
       <SwiperSlide>Slide 4</SwiperSlide>
       
     </Swiper>
-      </div>
+      </div> */}
       <HeroBanner/>
       <SearchExcercises SetExercises={SetExercises} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
       <Excercises SetExercises={SetExercises} bodyPart={bodyPart} exercises={Exercises}/>
