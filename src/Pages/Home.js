@@ -10,6 +10,7 @@ import SwiperCore from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import bg from '../Assets/bggo.png';
 SwiperCore.use([Autoplay]);
 
 // i will use React Context API here.
@@ -26,41 +27,11 @@ const Home = () => {
   const [Exercises,SetExercises]=useState([]);
   return (
     <Box  >
-      {/* <div style={{backgroundColor:'#f8f8f8'}}>
-      <Swiper
-        // install Swiper modules
-        modules={[Navigation, Pagination, Scrollbar, A11y,Autoplay]}
-        spaceBetween={10}
-        slidesPerView={1}
-       
-        loop={true} // Enable loop
-        pagination={{
-          clickable: true
-        }}
-        autoplay={{
-          "delay": 3000,
-          "disableOnInteraction": false,
-          "pauseOnMouseEnter":true
-        }}
-        speed={1500}
-        navigation
-    >
-      <SwiperSlide >
-        
-        <HeroBanner/>
-        
-        
-        </SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      
-    </Swiper>
-      </div> */}
+       <img style={{position:"absolute",top:"-20px",zIndex:'-1', width:"1368px"}} src={bg}/>
       <HeroBanner/>
       <SearchExcercises SetExercises={SetExercises} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
       <Excercises SetExercises={SetExercises} bodyPart={bodyPart} exercises={Exercises}/>
-      Home
+     
       
       </Box>
   )

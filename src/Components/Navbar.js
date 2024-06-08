@@ -6,16 +6,17 @@
 import React from 'react'
 
 import  './Navbar.css'
-import logo from '../Assets/Ryno_logo.png'
+import logo from '../Assets/icon rynopng.png'
 import { NavLink } from 'react-router-dom'
 import {Stack} from '@mui/material';
+import { red } from '@mui/material/colors';
 const Navbar = () => {
   return (
-  <Stack  direction="row" alignItems="center" justifyContent="none" sx={{gap:{sm:'122px',xs:'40px'},mt:{sm:'-10px',xs:'20px'}}}>
-      <NavLink to="/"><img src={logo} alt="logo" style={{width:'130px',height:'130px',margin:'0 20px'}} /></NavLink>
+  <Stack bgcolor={'rgba(7, 7, 7, 0.46)'}  direction="row" alignItems="center" justifyContent="none"  sx={{gap:{sm:'352px',xs:'40px'},mt:{sm:'-10px',xs:'20px'}}}>
+      <NavLink  to="/"><img  src={logo} alt="logo" style={{width:'130px',height:'30px',margin:' 30px'}} /></NavLink>
  
     {/* <div className='header'> */}
-    <Stack direction="row" gap="40px" fontSize="24px" alignItems="flex-end" className='list'>
+    <Stack direction="row" gap="80px" fontSize="24px" alignItems="flex-end" className='list'>
       {/* <nav className='list'> */}
 
    

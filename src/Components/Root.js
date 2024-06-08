@@ -11,6 +11,7 @@ const Root = () => {
     <Box width="400px" sx={{width:{xl:'1488px'}}} m="auto">
         <Navbar/>
         <main >
+       
         <Outlet/>
         </main>
         <Footer/>

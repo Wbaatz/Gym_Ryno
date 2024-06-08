@@ -9,9 +9,24 @@ const Cards = ({exercise}) => {
   return (
 
 
+
+
+// position: absolute;
+// width: 450px;
+// height: 505px;
+// left: 179px;
+// top: 303px;
+
+// background: #010101;
+
+
+
+
+
+
 <Link className="core-concepts"  to={`/ExcerciseDetail/${exercise.id}`}>
-<img  src={exercise.gifUrl}  alt={exercise.name} loading="lazy"/>
-<Stack direction="row">
+<img  src={exercise.gifUrl} style={{zIndex:'1'}} alt={exercise.name} loading="lazy"/>
+<Stack direction="row" fontSize={15} position={'relative'} justifyContent={'center'} top={-20} gap={10}>
     <button className='btn'>
     {exercise.bodyPart}
     </button>
@@ -21,7 +36,7 @@ const Cards = ({exercise}) => {
 
 
 </Stack>
-<Typography ml="21px" color="white" fontWeight="bold" mt="11px" pb="10px" textTransform="capitalize" fontSize="20px">
+<Typography  color="white" fontWeight="bold" textAlign={'center'} position={'relative'} top={-30}  textTransform="capitalize" fontSize="30px">
     {exercise.name}
 </Typography>
 

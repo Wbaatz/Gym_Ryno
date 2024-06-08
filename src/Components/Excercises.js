@@ -1,8 +1,31 @@
 import React,{useEffect,useState} from 'react'
 import { Pagination } from '@mui/material/';
+import { styled } from '@mui/material/styles';
 import {Box,Stack,Typography} from '@mui/material/'
 import Cards from './Cards'
+import boxes from '../Assets/boxes.png'
 import { myResponse} from '../utils/FetchData'
+
+const StyledPagination = styled(Pagination)(({ theme }) => ({
+  '& .MuiPaginationItem-root': {
+    color: 'black',  // lighter red color for non-selected items
+  },
+ '& .MuiPaginationItem-root.Mui-selected': {
+    backgroundColor: '#7e2c25',  // dark red color for selected item
+    color: '#ffffff',  // white color for selected item text
+  },
+  '& .MuiPaginationItem-page:hover': {
+    backgroundColor: '#f4d2d0',  // light red color on hover for non-selected items
+  },
+  '& .MuiPaginationItem-page.Mui-selected:hover': {
+    backgroundColor: '#7e2c25',  // maintain dark red color on hover for selected item
+  },
+}));
+
+
+
+
+
 const Excercises = ({SetExercises,exercises,bodyPart}) => {
   const [currentPage,setCurrentPage]=useState(1);
   const exercisesPerPage=9;
@@ -39,11 +62,9 @@ SetExercises( exerciseData);
     mt="50px"
     p="20px"
     >
-      <Typography variant="h4" mb="46px">
-        Showing Results
-      </Typography>
      
-
+     
+      <Typography fontStyle={'italic'} fontWeight={900} sx={{fontSize:{lg:'44px',xs:'30px'}}} mb="66px" textAlign="center"><img height={70} style={{position:'relative',left:'30px',zIndex:'-1',top:'-10px'}} src={boxes}/>SHOWING RESULTS</Typography>
      <Stack direction="row" sx={{gap:{lg:'110px',xs:'50px'}}}
      flexWrap="wrap" justifyContent="center">
     {currentExercises.map((exercise,index)=>(
@@ -54,15 +75,14 @@ SetExercises( exerciseData);
      </Stack>
      <Stack mt="100px" alignItems="center">
      {exercises.length>9 && (
-      <Pagination 
-      color="standard"
+      <StyledPagination
       shape="rounded"
       defaultPage={1}
-      count={Math.ceil(exercises.length/exercisesPerPage)}
+      count={Math.ceil(exercises.length / exercisesPerPage)}
       page={currentPage}
       onChange={paginate}
       size="large"
-      />
+    />
      )}
 
 

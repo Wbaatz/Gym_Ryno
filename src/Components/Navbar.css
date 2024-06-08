@@ -7,16 +7,28 @@
 }
 
 .list{
-  
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 39px;
 }
 
 .list a{
     text-decoration: none;
  font-size: 20px;
-    color:rgb(5, 220, 148);
+    color:rgb(255, 255, 255);
 }
 
 .list a:hover,
 .list a.active{
-    color: rgb(6, 145, 147);
+   /* Home */
+
+
+
+
+
+color: #F90808;
+
+
 }
