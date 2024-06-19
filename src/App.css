@@ -127,10 +127,11 @@ body {
   .exercise-video {
     display: flex;
     flex-direction: column;
-   
     width: 387px;
-    height: 381px;
+    height: inherit;
     text-decoration: none;
+    background: black;
+
   }
   
   @media screen and (max-width:1200px) {

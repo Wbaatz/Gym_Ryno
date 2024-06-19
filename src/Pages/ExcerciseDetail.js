@@ -1,59 +1,55 @@
-import React ,{useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
-import {Box} from '@mui/material'
-import Detail from '../Components/Detail'
-import ExerciseVideos from '../Components/ExerciseVideos'
-import SimilarExercises from '../Components/SimilarExercises'
-import { response,myResponse} from '../utils/FetchData'
-import {myResponseYoutube} from '../utils/FetchData'
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Box } from "@mui/material";
+import Detail from "../Components/Detail";
+import ExerciseVideos from "../Components/ExerciseVideos";
+import SimilarExercises from "../Components/SimilarExercises";
+import { response, myResponse } from "../utils/FetchData";
+import { myResponseYoutube } from "../utils/FetchData";
 const ExcerciseDetail = () => {
-
-  const [exerciseDetail,setExerciseDetail]=useState({});
-  const [exerciseDetail1,setExerciseDetail1]=useState();
-  const [exerciseDetail3,setExerciseDetail3]=useState([]);
+  const [exerciseDetail, setExerciseDetail] = useState({});
+  const [exerciseDetail1, setExerciseDetail1] = useState();
+  const [exerciseDetail3, setExerciseDetail3] = useState([]);
   const [exerciseVideos, setExerciseVideos] = useState([]);
   const [TargetMuscleExercises, setTargetMuscleExercises] = useState([]);
   const [equipmentExercises, setequipmentExercises] = useState([]);
-  const { id }=useParams();
-  console.log("id is "+id)
-useEffect(()=>{
-const FetchExercisesData=async ()=>{
+  const { id } = useParams();
+  console.log("id is " + id);
+  useEffect(() => {
+    const FetchExercisesData = async () => {
+      const ExerciseDetailData = await myResponse(`exercises/exercise/${id}`);
 
-  
+      setExerciseDetail(ExerciseDetailData.data);
+      const YoutubeData = await myResponseYoutube(ExerciseDetailData.data.name);
 
-  const ExerciseDetailData=(await myResponse(`exercises/exercise/${id}`));
+      setExerciseVideos(YoutubeData.data.contents);
 
+      const targetMuscleExercisesData = await myResponse(
+        `exercises/target/${ExerciseDetailData.data.target}`
+      );
+      setTargetMuscleExercises(targetMuscleExercisesData.data);
+      const equipmentExercisesData = await myResponse(
+        `exercises/equipment/${ExerciseDetailData.data.equipment}`
+      );
+      setequipmentExercises(equipmentExercisesData.data);
+    };
 
-  setExerciseDetail(ExerciseDetailData.data);
-  const YoutubeData=(await myResponseYoutube(ExerciseDetailData.data.name));
-  // console.log(YoutubeData);
-  // const ExerciseDetailData=(await myResponse(`exercises/exercise/0002`));
-  
-   setExerciseVideos(YoutubeData.data.contents);
-
-   const targetMuscleExercisesData=await myResponse(`exercises/target/${ExerciseDetailData.data.target}`);
-   setTargetMuscleExercises(targetMuscleExercisesData.data);
-  console.log("lets check the exercise target.")
-  console.log(targetMuscleExercisesData)
-   const equipmentExercisesData=await myResponse(`exercises/equipment/${ExerciseDetailData.data.equipment}`);
-   setequipmentExercises(equipmentExercisesData.data);
-  console.log("lets check the exercise equipment.")
-  console.log(equipmentExercisesData)
-
-};
-
-FetchExercisesData();
-},[id]);
+    FetchExercisesData();
+  }, [id]);
 
   return (
     <Box>
-      
-    <Detail exerciseDetail={exerciseDetail}/>
-    <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
-    <SimilarExercises TargetMuscleExercises={TargetMuscleExercises}  equipmentExercises={equipmentExercises} />
-      </Box>
-  )
-}
+      <Detail exerciseDetail={exerciseDetail} />
+      <ExerciseVideos
+        exerciseVideos={exerciseVideos}
+        name={exerciseDetail.name}
+      />
+      <SimilarExercises
+        TargetMuscleExercises={TargetMuscleExercises}
+        equipmentExercises={equipmentExercises}
+      />
+    </Box>
+  );
+};
 
-export default ExcerciseDetail
-
+export default ExcerciseDetail;
