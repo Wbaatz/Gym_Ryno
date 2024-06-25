@@ -64,7 +64,27 @@ SetExercises( exerciseData);
     >
      
      
-      <Typography fontStyle={'italic'} fontWeight={900} sx={{fontSize:{lg:'44px',xs:'30px'}}} mb="66px" textAlign="center"><img height={70} style={{position:'relative',left:'30px',zIndex:'-1',top:'-10px'}} src={boxes}/>SHOWING RESULTS</Typography>
+     <Typography
+    fontStyle="italic"
+    fontWeight={900}
+    sx={{ fontSize: { lg: "44px", xs: "15px" } }}
+    mb={{ lg: "80px", xs: "30px" }}
+    textAlign="center"
+  >
+  
+     <Box
+      component="img"
+      height={{ lg: "70px", xs: "50px" }}
+      sx={{
+        position: "relative",
+        left: { lg: "30px", xs: "10px" },
+        zIndex: "-1",
+        top: { lg: "-10px", xs: "-5px" }
+      }}
+      src={boxes}
+    />
+    SHOWING RESULTS
+  </Typography>
      <Stack direction="row" sx={{gap:{lg:'110px',xs:'50px'}}}
      flexWrap="wrap" justifyContent="center">
     {currentExercises.map((exercise,index)=>(
@@ -81,7 +101,8 @@ SetExercises( exerciseData);
       count={Math.ceil(exercises.length / exercisesPerPage)}
       page={currentPage}
       onChange={paginate}
-      size="large"
+    
+      
     />
      )}
 

@@ -7,25 +7,52 @@ import HorizontalScrollbar from './HorizontalScrollbar';
 import boxes from '../Assets/boxes.png';
 import Srch from '../Assets/searchicon.png'
 import { ReactSVG } from 'react-svg';
-import styled from 'styled-components';
-
+import styled, { css } from 'styled-components';
 const StyledSvg = styled(ReactSVG)`
   svg {
-    height: 30px;
-     
+    height: 20px;
     
     path {
       fill: white;
-       transition: fill 0.3s;
+      transition: fill 0.3s;
+    }
+    
+    ${({ theme }) => css`
+      button:hover & path {
+        fill: black;
+      }
+    `}
+
+    @media (min-width: 768px) {
+      height: 40px;
+
+      path {
+        fill: lightgray;
+      }
+      
+      ${({ theme }) => css`
+        button:hover & path {
+          fill: darkgray;
+        }
+      `}
     }
 
-    ${({ theme }) => `
-    button:hover & path {
-      fill: black;
+    @media (min-width: 1024px) {
+      height: 50px;
+
+      path {
+        fill: white;
+      }
+
+      ${({ theme }) => css`
+        button:hover & path {
+          fill: black;
+        }
+      `}
     }
-  `}
   }
 `;
+
 
 const SearchExcercises = ({SetExercises,bodyPart,setBodyPart}) => {
 
@@ -72,61 +99,89 @@ fetchExerciseData();
 
 
 
-// box-sizing: border-box;
-
-// position: absolute;
-// width: 683px;
-// height: 72px;
-// left: 383px;
-// top: 269px;
-
-// background: ;
-// border: ;
-// border-radius: 50px 0px 0px 50px;
 
 
 
-    <Stack alignItems="center"  mt="257px" justifyContent="center" >
-      <Typography fontStyle={'italic'} fontWeight={900} sx={{fontSize:{lg:'44px',xs:'30px'}}} mb="80px" textAlign="center"><img height={70} style={{position:'relative',left:'30px',zIndex:'-1',top:'-10px'}} src={boxes}/>Awesome Excercise You <br/> Should Know</Typography>
-      <Box position="relative" mb="122px" mr="60px">
-      <input style={{fontSize:'20px',height:'50px',fontWeight:'700',outline:'none',width:'500px',background:'rgba(255, 255, 255, 0.84)',borderRadius:'50px 0px 0px 50px',border:'2px solid #890404',boxSizing:'border-box',paddingLeft:'20px'}}
- 
-  value={Search}
-  onChange={(e) => SetSearch(e.target.value.toLowerCase())}
-  placeholder='Search Exercises'
-  type="text"
- 
+
+    <Stack alignItems="center" mt={{ lg: "257px", xs: "30px" }} justifyContent="center">
+  <Typography
+    fontStyle="italic"
+    fontWeight={900}
+    sx={{ fontSize: { lg: "44px", xs: "15px" } }}
+    mb={{ lg: "80px", xs: "30px" }}
+    textAlign="center"
+  >
+     <Box
+      component="img"
+      height={{ lg: "70px", xs: "50px" }}
+      sx={{
+        position: "relative",
+        left: { lg: "30px", xs: "10px" },
+        zIndex: "-1",
+        top: { lg: "-10px", xs: "-5px" }
+      }}
+      src={boxes}
+    />
+    Awesome Exercise You <br /> Should Know
+  </Typography>
+  <Box position="relative" mb={{ lg: "122px", xs: "40px" }} mr={{ lg: "60px", xs: "60px" }}>
+  <input
+  id="searchInput"
+ value={Search}
+ onChange={(e) => SetSearch(e.target.value.toLowerCase())}
+ placeholder='Search Exercises'
+ type="text"
+
 />
+    <Button
+      variant="contained"
+      sx={{
+        position: "absolute",
+        width: { lg: "85px", xs: "20px" },
+        fontSize: { lg: "20px", xs: "5px" },
+        height: {lg:'50px',xs:'29px'},
+        borderRadius: "0px 50px 50px 0px",
+        background: "rgba(200, 30, 30, 0.84)",
+        "&:hover": {
+          background: "#61FFE9"
+        }
+      }}
+      onClick={HandleSearch}
+    >
+      <StyledSvg src={srchi} />
+    </Button>
+  </Box>
+  <Typography
+    fontStyle="italic"
+    fontWeight={900}
+    sx={{ fontSize: { lg: "44px", xs: "15px" } }}
+    mb={{ lg: "80px", xs: "30px" }}
+    textAlign="center"
+  >
+  
+     <Box
+      component="img"
+      height={{ lg: "70px", xs: "50px" }}
+      sx={{
+        position: "relative",
+        left: { lg: "30px", xs: "10px" },
+        zIndex: "-1",
+        top: { lg: "-10px", xs: "-5px" }
+      }}
+      src={boxes}
+    />
+    BODY PARTS
+  </Typography>
+  <Box sx={{ position: "relative", width: "100%" }}>
+    <HorizontalScrollbar
+      data={bodyParts}
+      bodyPart={bodyPart}
+      setBodyPart={setBodyPart}
+      isBodyParts
+    />
+  </Box>
+</Stack>
 
-
-
-
-
-
-
-       <Button  variant='contained'
-       sx={{position:'absolute',
-            width:{lg:'85px',xs:'80px'},
-            fontSize:{lg:'20px', xs:'14px'},
-            height:'50px',
-            borderRadius:'0px 50px 50px 0px',
-            background:'rgba(200, 30, 30, 0.84)',
-            '&:hover': {
-      background: '#61FFE9'
-    },
-          }}
-       onClick={HandleSearch}>
-      
-      <StyledSvg src={srchi}  />
-       </Button>
-      </Box>
-      <Typography fontStyle={'italic'} fontWeight={900} sx={{fontSize:{lg:'44px',xs:'30px'}}} mb="20px" textAlign="center"><img height={70} style={{position:'relative',left:'30px',zIndex:'-1',top:'-10px'}} src={boxes}/>BODY PARTS</Typography>
-      <Box sx={{position:'relative',width:'100%',o:"20px" }}>
-<HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} isBodyParts />
-
-
-      </Box>
-      </Stack>
   )
 }
 

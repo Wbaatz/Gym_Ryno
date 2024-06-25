@@ -8,6 +8,7 @@
     box-sizing: border-box;
 } */
 
+/* Breakpoint for small screens (xs) */
 
 .core-concepts{
     width: 450px;
@@ -148,3 +149,44 @@ transform: translateY(34%);
         background: white;
         color: rgb(13, 1, 1);
     }
+
+
+
+    @media (max-width: 600px) {
+        .core-concepts {
+            width: 140px;
+            height: 240px;
+            padding-bottom: 20px;
+        }
+    }
+    
+    /* Breakpoint for large screens (lg) */
+    @media (min-width: 1280px) {
+        .core-concepts {
+            width: 500px;
+            height: 600px;
+        }
+    }
+
+
+
+
+    /* Breakpoint for small screens (xs) */
+@media (max-width: 600px) {
+    .btn,
+    .btn2 {
+        font-size: 9px;
+        padding: 5px 12px;
+        
+    }
+}
+
+/* Breakpoint for large screens (lg) */
+@media (min-width: 1280px) {
+    .btn,
+    .btn2 {
+        font-size: 24px;
+        padding: 10px 40px;
+        margin: 7px;
+    }
+}

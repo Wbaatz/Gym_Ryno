@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const HeroBanner = () => {
   return (
       <Box sx={{mt: 
-   {lg:'212px',xs:'70px'},
+   {lg:'212px',xs:'10px'},
    ml:{sm:'50px'},
    
    }} position="relative" p="20px">
@@ -33,10 +33,10 @@ color: #FFFFFF; */}
 
 
 
-    <Typography color="#61FFE9" fontStyle={'italic'} fontWeight="800" fontSize="48px" lineHeight="116px">
+    <Typography color="#61FFE9" fontStyle={'italic'} fontWeight="800" sx={{fontSize:{xs:'20px',lg:'48px'},lineHeight:{xs:'50px',lg:'116px'}}} >
         FITNESS CLUB
     </Typography>
-    <Typography  color="#FFFFFF" fontStyle={'italic'} fontWeight="800" sx={{fontSize:{lg:'80px',xs:'40px'}}}>
+    <Typography  color="#FFFFFF" fontStyle={'italic'} fontWeight="800" sx={{fontSize:{lg:'80px',xs:'27px'}}}>
        SWEAT, SMILE <br/> AND REPEAT
     </Typography>
 
@@ -46,26 +46,21 @@ color: #FFFFFF; */}
 
 
 
-{/* position: absolute;
-width: 651px;
-height: 94px;
-left: 15px;
-top: 730px;
-
-font-family: 'Inter';
-font-style: italic;
-font-weight: 800;
-font-size: 32px;
-line-height: 39px;
-
-color: rgba(147, 147, 151, 0.75);
- */}
 
 
 
-    <Typography color={'rgba(147, 147, 151, 0.75)'} fontSize="32px" mb={4} fontWeight={800} fontStyle={'italic'} lineHeight="35px" >
-      Check out the most effective Excercises
-    </Typography>
+    <Typography
+  sx={{
+    color: 'rgba(147, 147, 151, 0.75)',
+    fontSize: { xs: '12px', lg: '32px' },
+    mb: { xs: 2, lg: 4 }, // Adjusted margin-bottom for responsive design
+    fontWeight: { xs: 600, lg: 800 }, // Example of different fontWeight for responsiveness
+    fontStyle: 'italic',
+    lineHeight: { xs: '10px', lg: '35px' } // Adjusted lineHeight for responsive design
+  }}
+>
+  Check out the most effective Exercises
+</Typography>
 
 
 
@@ -91,10 +86,26 @@ line-height: 39px;
 color: #000000; */}
 
 
-    <Button  variant='contained' sx={{borderRadius:'50px',background:'#61FFE9',fontStyle:'italic',fontWeight:'1000',fontSize:'20px',color:'black',padding:'20px 30px 20px 30px', '&:hover': {
-      background: '#DF424D',color:'white'
-    },}}  href="#exercises" 
-      >Explore Excercises</Button>
+<Button
+  variant="contained"
+  sx={{
+    borderRadius: { xs: '30px', lg: '50px' },
+    background: { xs: '#61FFE9', lg: '#61FFE9' }, // background color can remain same if not changing
+    fontStyle: 'italic',
+    fontWeight: { xs: '700', lg: '1000' },
+    fontSize: { xs: '10px', lg: '20px' },
+    color: { xs: 'black', lg: 'black' }, // color can remain same if not changing
+    padding: { xs: '5px 10px', lg: '20px 30px' },
+    '&:hover': {
+      background: { xs: '#DF424D', lg: '#DF424D' }, // hover background color can remain same if not changing
+      color: { xs: 'white', lg: 'white' } // hover text color can remain same if not changing
+    },
+  }}
+  href="#exercises"
+>
+  Explore Exercises
+</Button>
+
     
     {/* <img src={body_img} className='muscle'></img> */}
 

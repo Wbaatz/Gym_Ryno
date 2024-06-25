@@ -60,6 +60,7 @@ const Detail = ({ exerciseDetail }) => {
       <img
         height={782}
         style={{
+          width:'-webkit-fill-available',
           position: "absolute",
           top: "-20px",
           zIndex: "-1",
@@ -70,8 +71,9 @@ const Detail = ({ exerciseDetail }) => {
       />
 
       <Stack
-        gap="60px"
+       
         sx={{
+           gap:{xs:'10px',lg:'60px'},
           flexDirection: { lg: "row" },
           p: "20px",
           alignItems: "center",
@@ -79,12 +81,12 @@ const Detail = ({ exerciseDetail }) => {
         }}
       >
         <img src={gifUrl} alt={name} loading="lazy" className="detail-image" />
-        <Stack sx={{ gap: { lg: "35px", xs: "20px" } }}>
+        <Stack sx={{ gap: { lg: "35px", xs: "20px" } ,mb:{xs:'60px'}}}>
           <Typography
             fontStyle={"italic"}
             fontWeight={900}
-            sx={{ fontSize: { lg: "44px", xs: "30px" }, color: "white" }}
-            mb="66px"
+            sx={{ fontSize: { lg: "44px", xs: "30px" }, color: "white",mb:{xs:'10px',lg:'66px'} ,mt:{xs:'20px',lg:''}}}
+           
             textAlign="center"
           >
             <img

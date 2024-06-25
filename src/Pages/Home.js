@@ -26,8 +26,19 @@ const Home = () => {
   const [bodyPart,setBodyPart]=useState('all');
   const [Exercises,SetExercises]=useState([]);
   return (
-    <Box  >
-       <img style={{position:"absolute",top:"-20px",zIndex:'-1', width:"1368px"}} src={bg}/>
+    <Box overflow={'hidden'} >
+      <img 
+    style={{
+      position: "absolute",
+      top: "-20px",
+      zIndex: "-1",
+      width: "100%",
+      height: "auto",
+      maxWidth: "100vw",
+      overflow: "hidden"
+    }} 
+    src={bg} 
+  />
       <HeroBanner/>
       <SearchExcercises SetExercises={SetExercises} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
       <Excercises SetExercises={SetExercises} bodyPart={bodyPart} exercises={Exercises}/>
