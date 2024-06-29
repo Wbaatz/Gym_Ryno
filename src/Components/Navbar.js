@@ -59,7 +59,7 @@ const Navbar = () => {
    
            <NavLink to="/"  className={({isActive})=>isActive ? 'active' :undefined} end>Home</NavLink>
            <NavLink  to="/ExcerciseDetail/0001"  className={({isActive})=>isActive ? 'active' :undefined}>Excercises</NavLink>
-        <NavLink  to="/About"  className={({isActive})=>isActive ? 'active' :undefined}>About us</NavLink>
+        {/* <NavLink  to="/About"  className={({isActive})=>isActive ? 'active' :undefined}>About us</NavLink> */}
 
         {/* </nav> */}
     </Stack>

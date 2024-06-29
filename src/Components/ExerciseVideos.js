@@ -38,7 +38,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
         alignItems="strech"
         sx={{
           flexDirection: { xs:'row' ,lg: "row" },
-          gap: { lg: "70px", xs: "20px" }, justifyContent:{xs:'flex-start',lg:'center'}
+          gap: { lg: "70px", xs: "20px" }, justifyContent:{xs:'flex-start',lg:'center'} ,mb:{xs:'',lg:'50px'} , mt:{xs:'',lg:'100px'}
         }}
       >
         {exerciseVideos?.slice(0, 3).map((item, index) => {
@@ -54,15 +54,16 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
+       
         width: {
           xs: '45%',  // Full width on extra small screens
-          lg: '80%', // Fixed width on large screens
+          lg: '20%', // Fixed width on large screens
         },
-        height:{xs:'auto',lg:'300px'},
+        height:{xs:'',lg:'400px'},
         textDecoration: 'none',
         backgroundColor: 'black',
         alignItems: 'center', // Ensure items are centered
-        justifyContent: 'center', // Center the content vertically
+        justifyContent: 'flex-start', // Center the content vertically
       }}
           >
               <Box
@@ -78,16 +79,18 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
                 sx={{
                   background: "black",
                   flexDirection: "column",
+                  justifyContent:'flex-start',
                   textAlign: "center",
                   display: "flex",
                   color: "white",
                   padding: "20px",
+                  width:'100%'
                 }}
               >
                 <Typography  sx={{
           fontSize: {
             xs: '15px', // Font size for extra small screens
-            lg: '50px', // Font size for large screens
+            lg: '20px', // Font size for large screens
           }}} >{item.video.title}</Typography>
                 <Typography variant="h6" color={"#DF424D"} mt={1} pb={2}>
                   {item.video.channelName}

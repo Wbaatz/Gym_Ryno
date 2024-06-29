@@ -11,20 +11,13 @@ const Cards = ({exercise}) => {
 
 
 
-// position: absolute;
-// width: 450px;
-// height: 505px;
-// left: 179px;
-// top: 303px;
-
-// background: #010101;
 
 
 
 
 
 
-<Link className="core-concepts"  to={`/ExcerciseDetail/${exercise.id}`}>
+<Link  className="core-concepts"  to={`/ExcerciseDetail/${exercise.id}`}>
  <Box
           component="img"
           src={exercise.gifUrl}
@@ -32,15 +25,14 @@ const Cards = ({exercise}) => {
           loading="lazy"
           sx={{
             zIndex: 1,
-            width: { xs: '100%', lg: 'auto' },
-            height: { xs: '100px', lg: 'auto' },
+            width: { xs: '100%', lg: '100%' },
+          
           }}
         />
-<Stack direction="row" fontSize={15} position={'relative'} justifyContent={'center'} sx={{
-            top: { xs: 0, lg: -20 },
-            gap: { xs: 2, lg: 10 },
+<Stack direction="row" fontSize={5}  justifyContent={'start'} sx={{
+            gap: { xs: 2, lg:1 }, position:'relative',top:'-69%',zIndex:'1'
           }}>
-    <button className='btn'>
+    <button className='btngo'>
     {exercise.bodyPart}
     </button>
     <button className="btn2" >
