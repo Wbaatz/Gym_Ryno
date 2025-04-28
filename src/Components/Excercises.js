@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import { Pagination } from '@mui/material/';
 import { styled } from '@mui/material/styles';
-import {Box,Stack,Typography} from '@mui/material/'
+import {Box,Stack,Typography,CircularProgress} from '@mui/material/'
 import Cards from './Cards'
 import boxes from '../Assets/boxes.png'
 import { myResponse} from '../utils/FetchData'
@@ -27,6 +27,7 @@ const StyledPagination = styled(Pagination)(({ theme }) => ({
 
 
 const Excercises = ({SetExercises,exercises,bodyPart}) => {
+  const [loading, setLoading] = useState(false);
   const [currentPage,setCurrentPage]=useState(1);
   const exercisesPerPage=9;
 
@@ -41,20 +42,42 @@ window.scrollTo({top:1800,behavior:'smooth'})
   const indexOfFirstExercise=indexOfLastExercise-exercisesPerPage;
   const currentExercises=exercises.slice(indexOfFirstExercise,indexOfLastExercise)
 
-useEffect(()=>{
-  const fetchExerciseData= async ()=>{
-    let exerciseData=[];
-if(bodyPart ==='all'){
-  exerciseData=(await myResponse('exercises')).data;
-}
-else{
-  exerciseData=(await myResponse(`exercises/bodyPart/${bodyPart}`)).data;
-}
+  useEffect(() => {
+    const fetchExerciseData = async () => {
+      setLoading(true); // start loading
+      let exerciseData = [];
 
-SetExercises( exerciseData);
+      try {
+        if (bodyPart === 'all') {
+          exerciseData = (await myResponse('exercises')).data;
+        } else {
+          exerciseData = (await myResponse(`exercises/bodyPart/${bodyPart}`)).data;
+        }
+        SetExercises(exerciseData);
+      } catch (error) {
+        console.error('Failed to fetch exercise data:', error);
+      } finally {
+        setLoading(false); // stop loading
+      }
+    };
+
+    fetchExerciseData();
+  }, [bodyPart, SetExercises]);
+
+  if (loading) {
+    return (
+      <Box 
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '50vh',  // or '100vh' depending on what looks better
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
-   fetchExerciseData();
-},[bodyPart]);
 
   return (
     <Box id="exercises"

@@ -1,48 +1,90 @@
-//rafce
-//install es7+ snippets
-//npm install --legacy-peer-deps
-import React from 'react';
-import "./App.css"
-import {Box} from '@mui/material';
+// rafce
+// install es7+ snippets
+// npm install --legacy-peer-deps
 
-//React router
-//fetching and sending data.
-//Routing->
-//with out react --> page change=new request+response -->html is requested and loaded
-//-->when building complex user interfaces, we typically build single page application (SPAs)
-//-->only one initial html request &response.
-//--> page (URL) changes are then handled by client-side React code.
-//-->visible content is changed without fetching a new html file.
-//-->watches the url and simply loaded a different react componenet when the url changes.
-//-->npm install react-router-dom
+import React, { lazy, Suspense } from 'react';
+import './App.css';
+import { Box, CircularProgress } from '@mui/material';
 
-//the react-router-dom also supports dynamic paths segments or path parameters.
-//you add a paramter to the path. so such a dynamic path segment like
-//--->'/products/:productId'
+// React Router
+// Fetching and sending data.
+// Routing ->
+// Without React --> Page change = new request + response --> HTML is requested and loaded
+// With React SPA --> Only one initial HTML request & response
+// --> URL changes handled by client-side React code.
+// --> Visible content changes without fetching a new HTML file.
+// --> Watches the URL and loads a different React component when the URL changes.
+// npm install react-router-dom
 
-import {createBrowserRouter,RouterProvider} from 'react-router-dom';
+// Dynamic paths supported --> Example: '/products/:productId'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import About from './Pages/About';
+// Components
+import Root from './Components/Root';
 import Error from './Pages/Error';
-import Root from './Components/Root'
-import Home from './Pages/Home';
-import ExcerciseDetail from './Pages/ExcerciseDetail';
-const router=createBrowserRouter([
+
+// Lazy Loaded Pages
+const Home = lazy(() => import('./Pages/Home'));
+const About = lazy(() => import('./Pages/About'));
+const ExcerciseDetail = lazy(() => import('./Pages/ExcerciseDetail'));
+
+// Loading Spinner Component
+const Loading = () => (
+  <Box
+    sx={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+    }}
+  >
+    <CircularProgress />
+  </Box>
+);
+
+// Router setup
+const router = createBrowserRouter([
   {
-  path:'/',
-  element:<Root/>,
-  errorElement:<Error/>,
-  children:[
-    {path:'/',element:<Home/>},
-    {path:'/About',element:<About/>},
-    {path:'/ExcerciseDetail/:id',element:<ExcerciseDetail/>},
-  ],
+    path: '/',
+    element: <Root />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: '/',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Home />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/About',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <About />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/ExcerciseDetail/:id',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <ExcerciseDetail />
+          </Suspense>
+        ),
+      },
+    ],
   },
 ]);
-const Tut7 = () => {
-  return <RouterProvider router={router}/>
-   
-  
-}
 
-export default Tut7
+// Main App
+const Tut7 = () => {
+  return (
+    <RouterProvider
+      router={router}
+      fallbackElement={<Loading />}
+    />
+  );
+};
+
+export default Tut7;
