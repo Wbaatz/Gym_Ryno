@@ -9,10 +9,30 @@ const Cards = ({exercise}) => {
   return (
 
 
-<Link className="core-concepts"  to={`/ExcerciseDetail/${exercise.id}`}>
-<img  src={exercise.gifUrl}  alt={exercise.name} loading="lazy"/>
-<Stack direction="row">
-    <button className='btn'>
+
+
+
+
+
+
+
+
+<Link  className="core-concepts"  to={`/ExcerciseDetail/${exercise.id}`}>
+ <Box
+          component="img"
+          src={exercise.gifUrl}
+          alt={exercise.name}
+          loading="lazy"
+          sx={{
+            zIndex: 1,
+            width: { xs: '100%', lg: '100%' },
+          
+          }}
+        />
+<Stack direction="row" fontSize={5}  justifyContent={'start'} sx={{
+            gap: { xs: 2, lg:1 }, position:'relative',top:'-69%',zIndex:'1'
+          }}>
+    <button className='btngo'>
     {exercise.bodyPart}
     </button>
     <button className="btn2" >
@@ -21,7 +41,13 @@ const Cards = ({exercise}) => {
 
 
 </Stack>
-<Typography ml="21px" color="white" fontWeight="bold" mt="11px" pb="10px" textTransform="capitalize" fontSize="20px">
+<Typography  color="white" fontWeight="bold" textAlign={'center'}  sx={{
+         
+            textTransform: "capitalize",
+            fontSize: { xs: 15, lg: 30 },
+            mb: { xs: 10 },
+           
+          }}>
     {exercise.name}
 </Typography>
 

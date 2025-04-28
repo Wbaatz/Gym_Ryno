@@ -1,44 +1,107 @@
-import React from 'react'
-import {Box,Stack,Typography} from '@mui/material';
-const ExerciseVideos = ({exerciseVideos , name}) => {
-
-  console.log(exerciseVideos)
-  console.log("these are the exercise videos")
+import React from "react";
+import { Box, Stack, Typography,Link } from "@mui/material";
+import boxes from "../Assets/boxes.png";
+const ExerciseVideos = ({ exerciseVideos, name }) => {
+  console.log(exerciseVideos);
+  console.log("these are the exercise videos");
 
   // const Myobj=[{title:'yahoo'},{title:"meho"},{title:"ghaiz"}]
   // const Myobj = [{ title: 'yahoo' }, { title: "meho" }, { title: 'ghaiz' }];
   return (
-    <Box sx={{marginTop:{lg:'140px',xs:'20px'}}} p="20px">
-      
-    <Typography variant="h4" mb="33px">
-      Watch <span style={{color:'#ff2625',textTransform:'capitalize'}}>{name}</span> exercise Videos
+    <Box sx={{ marginTop: { lg: "140px", xs: "20px" } }} p="20px">
+      <Typography
+        mb={5}
+        fontStyle={"italic"}
+        fontWeight={900}
+        sx={{ fontSize: { lg: "44px", xs: "20px" } }}
+      >
+        <img
+          height={70}
+          style={{
+            position: "relative",
+            left: "30px",
+            zIndex: "-1",
+            top: "-10px",
+          }}
+          src={boxes}
+        />{" "}
+        Watch{" "}
+        <span style={{ color: "#ff2625", textTransform: "capitalize" }}>
+          {name}
+        </span>{" "}
+        Videos
+      </Typography>
 
-    </Typography>
-      <Stack justifyContent="flex-start" flexWrap="wrap" alignItems="center" sx={{
-        flexDirection:{lg:'row'},gap:{lg:'70px',xs:'0'}
-      }}>
- 
-{exerciseVideos?.slice(0,3).map((item, index) => {
-  console.log("my videos " + index); 
+      <Stack
+       
+        flexWrap="wrap"
+        alignItems="strech"
+        sx={{
+          flexDirection: { xs:'row' ,lg: "row" },
+          gap: { lg: "70px", xs: "20px" }, justifyContent:{xs:'flex-start',lg:'center'} ,mb:{xs:'',lg:'50px'} , mt:{xs:'',lg:'100px'}
+        }}
+      >
+        {exerciseVideos?.slice(0, 3).map((item, index) => {
+          console.log("my videos " + index);
 
-  return (
-  <a key={index} className="exercise-video" href={`https://www.youtube.com/watch?v=${item.video.videoId}`} target="_blank" rel="noreferrer" > 
-  <img src={item.video.thumbnails[0].url} alt={item.video.title} />
-  <Box>
-    <Typography variant='h5'>
-      {item.video.title}
-    </Typography>
-    <Typography variant='h6'>
-      {item.video.channelName}
-    </Typography>
-  </Box>
-  </a>
-  );
-})}
-
+          return (
+            <Link
+            key={index}
+      href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
+      target="_blank"
+      rel="noreferrer"
+      underline="none"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+       
+        width: {
+          xs: '45%',  // Full width on extra small screens
+          lg: '20%', // Fixed width on large screens
+        },
+        height:{xs:'',lg:'400px'},
+        textDecoration: 'none',
+        backgroundColor: 'black',
+        alignItems: 'center', // Ensure items are centered
+        justifyContent: 'flex-start', // Center the content vertically
+      }}
+          >
+              <Box
+      component="img"
+      src={item.video.thumbnails[0].url}
+      alt={item.video.title}
+      sx={{
+        width: '100%', // Adjust the width as needed
+        height: 'auto', // Maintain aspect ratio
+      }}
+    />
+              <Box
+                sx={{
+                  background: "black",
+                  flexDirection: "column",
+                  justifyContent:'flex-start',
+                  textAlign: "center",
+                  display: "flex",
+                  color: "white",
+                  padding: "20px",
+                  width:'100%'
+                }}
+              >
+                <Typography  sx={{
+          fontSize: {
+            xs: '15px', // Font size for extra small screens
+            lg: '20px', // Font size for large screens
+          }}} >{item.video.title}</Typography>
+                <Typography variant="h6" color={"#DF424D"} mt={1} pb={2}>
+                  {item.video.channelName}
+                </Typography>
+              </Box>
+            </Link>
+          );
+        })}
       </Stack>
-      </Box>
-  )
-}
+    </Box>
+  );
+};
 
-export default ExerciseVideos
+export default ExerciseVideos;

@@ -7,7 +7,7 @@ export async function  myResponse(path){
     url: `https://exercisedb.p.rapidapi.com/${path}`,
     params: { limit: '10000' },
     headers: {
-      'X-RapidAPI-Key': 'c7ce061c1bmsha91c2162e41c6a4p170c22jsn2126759335b4',
+      'X-RapidAPI-Key': '04d1216a57msh748e314d919c21cp11816cjsna9e16d8bfd6b',
       'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     }
   })
@@ -19,7 +19,7 @@ export async function  myResponse1(path){
     url: `https://exercisedb.p.rapidapi.com/${path}`,
     params: { limit: '10000' },
     headers: {
-      'X-RapidAPI-Key': 'c7ce061c1bmsha91c2162e41c6a4p170c22jsn2126759335b4',
+      'X-RapidAPI-Key': '04d1216a57msh748e314d919c21cp11816cjsna9e16d8bfd6b',
       'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     }
   })
@@ -32,7 +32,7 @@ export async function  myResponse2(path){
     url: `https://exercisedb.p.rapidapi.com/${path}`,
     params: { limit: '10000' },
     headers: {
-      'X-RapidAPI-Key': 'c7ce061c1bmsha91c2162e41c6a4p170c22jsn2126759335b4',
+      'X-RapidAPI-Key': '04d1216a57msh748e314d919c21cp11816cjsna9e16d8bfd6b',
       'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     }
   })
